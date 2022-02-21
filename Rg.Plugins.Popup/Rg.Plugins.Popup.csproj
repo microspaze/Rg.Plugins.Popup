@@ -22,7 +22,16 @@
     <Compile Remove="Platforms\**\*.cs" />
     <None Include="Platforms\**\*.cs" />
     <None Include="Resources\*.cs" />
+    <Compile Remove="Platforms\Tizen\**" />
+    <Compile Remove="Platforms\Uap\**" />
+    <Compile Remove="Platforms\Wpf\**" />
     <Compile Remove="Resources\*.cs" />
+    <EmbeddedResource Remove="Platforms\Tizen\**" />
+    <EmbeddedResource Remove="Platforms\Uap\**" />
+    <EmbeddedResource Remove="Platforms\Wpf\**" />
+    <None Remove="Platforms\Tizen\**" />
+    <None Remove="Platforms\Uap\**" />
+    <None Remove="Platforms\Wpf\**" />
     <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     <None Include="readme.txt" pack="true" PackagePath="." />
   </ItemGroup>
@@ -30,14 +39,6 @@
   <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
     <None Remove="Platforms\Netstandard\**\*.cs" />
     <Compile Include="Platforms\Netstandard\**\*.cs" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net4')) And '$(OS)' == 'Windows_NT' ">
-    <None Remove="Platforms\Net\**\*.cs" />
-    <None Remove="Platforms\Wpf\**\*.cs" />
-    <Compile Include="Platforms\Net\**\*.cs" />
-    <Compile Include="Platforms\Wpf\**\*.cs" />
-    <PackageReference Include="Xamarin.Forms.Platform.WPF" Version="5.0.0.2012" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
@@ -97,7 +98,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
   </ItemGroup>
 
   <!-- There is something not working correctly w.r.t. multi-targetting so adding
